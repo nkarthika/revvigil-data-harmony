@@ -34,6 +34,20 @@ jobs:
           bun install
           bun run build
 
+      - name: Show build output (debug)
+        if: always()
+        run: |
+          echo "Working dir: $(pwd)"
+          echo "Tree of .output/public (up to 3 levels):"
+          if [ -d ".output/public" ]; then
+            ls -la .output/public || true
+            find .output/public -maxdepth 3 -type f -print || true
+            echo "Index file exists?:"
+            [ -f .output/public/index.html ] && echo "index.html found" || echo "index.html NOT found"
+          else
+            echo ".output/public directory not found"
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
