@@ -34,6 +34,46 @@ jobs:
           bun install
           bun run build
 
+      - name: Generate index.html for GitHub Pages
+        if: always()
+        run: |
+          OUT=.output/public
+          mkdir -p "$OUT"
+          # find the first JS and CSS bundles that look like the client entry
+          JS=$(find "$OUT/assets" -type f -name 'index-*.js' -o -name 'index-*.mjs' | head -n1 || true)
+          # fallback: any JS in assets if index-* not present
+          if [ -z "$JS" ]; then
+            JS=$(find "$OUT/assets" -type f -name '*index*.js' -o -name '*.js' | head -n1 || true)
+          fi
+          CSS=$(find "$OUT/assets" -type f -name 'styles-*.css' | head -n1 || true)
+          echo "JS bundle: $JS"
+          echo "CSS bundle: $CSS"
+          if [ -z "$JS" ]; then
+            echo "No JS bundle found in $OUT/assets; cannot generate index.html" >&2
+            exit 0
+          fi
+          # make paths relative to OUT
+          JS_REL=${JS#"$OUT/"}
+          CSS_REL=${CSS#"$OUT/"}
+          # generate a minimal index.html that mounts the SPA
+          cat > "$OUT/index.html" <<EOF
+          <!doctype html>
+          <html>
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width,initial-scale=1" />
+              <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+              ${CSS_REL:+<link rel="stylesheet" href="./$CSS_REL">}
+            </head>
+            <body>
+              <div id="root"></div>
+              <script type="module" src="./$JS_REL"></script>
+            </body>
+          </html>
+          EOF
+          echo "Generated $OUT/index.html"
+          ls -la "$OUT" || true
+
       - name: Show build output (debug)
         if: always()
         run: |
