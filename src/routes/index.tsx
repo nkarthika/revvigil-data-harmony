@@ -56,47 +56,50 @@ function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto text-center flex flex-col items-center">
-          <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-brand mb-6">
+      <section className="relative w-full min-h-[620px] lg:min-h-[760px] flex items-center justify-center overflow-hidden">
+        {/* Full-width background image */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src={heroImage}
+            alt="RevVigil reconciliation dashboard showing CRM, ERP, and Billing system data alignment"
+            width={1200}
+            height={675}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
+        </div>
+
+        {/* Radar ping overlay */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <div className="w-[30rem] h-[30rem] border border-brand/40 rounded-full animate-radar-ping opacity-25"></div>
+          <div className="w-[22rem] h-[22rem] border border-brand/30 rounded-full absolute animate-radar-ping-slow opacity-25"></div>
+        </div>
+
+        {/* Hero content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center flex flex-col items-center">
+          <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-white/90 mb-6 drop-shadow">
             Detect. Reconcile. Reclaim.
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-foreground mb-8 text-balance max-w-[30ch]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white mb-8 text-balance max-w-[30ch] drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
             When your systems disagree, which data do you trust?
           </h1>
-          <p className="text-lg text-muted-foreground mb-12 text-pretty max-w-[56ch]">
+          <p className="text-lg text-white/90 mb-12 text-pretty max-w-[56ch] drop-shadow-md">
             Revvigil reconciles critical data across your systems so you can see what’s consistent,
             what’s missing, and what needs attention.
           </p>
-          <div className="flex items-center gap-4 mb-20">
+          <div className="flex items-center gap-4">
             <button className="h-10 px-6 bg-brand text-brand-foreground text-sm font-medium rounded-md ring-1 ring-brand hover:brightness-110 transition-transform">
               Find Your Revenue Gaps
             </button>
           </div>
+        </div>
 
-          {/* Radar Metaphor Image */}
-          <div className="relative w-full max-w-5xl group">
-            <div className="absolute -inset-px bg-foreground/5 rounded-xl"></div>
-            <div className="relative w-full aspect-video bg-surface rounded-xl outline outline-1 outline-foreground/5 overflow-hidden">
-              <img
-                src={heroImage}
-                alt="RevVigil reconciliation dashboard showing CRM, ERP, and Billing system data alignment"
-                width={1200}
-                height={675}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-96 h-96 border border-brand/40 rounded-full animate-radar-ping opacity-20"></div>
-                <div className="w-64 h-64 border border-brand/30 rounded-full absolute animate-radar-ping-slow opacity-20"></div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent"></div>
-              <div className="absolute bottom-8 left-0 right-0 text-center">
-                <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-background">
-                  Don’t Leave Earned Revenue on the Table
-                </span>
-              </div>
-            </div>
-          </div>
+        {/* Bottom caption */}
+        <div className="absolute bottom-8 left-0 right-0 z-10 text-center">
+          <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-white drop-shadow">
+            Don’t Leave Earned Revenue on the Table
+          </span>
         </div>
       </section>
 
