@@ -89,9 +89,9 @@ function Index() {
                 <div className="w-96 h-96 border border-brand/40 rounded-full animate-radar-ping opacity-20"></div>
                 <div className="w-64 h-64 border border-brand/30 rounded-full absolute animate-radar-ping-slow opacity-20"></div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent"></div>
               <div className="absolute bottom-8 left-0 right-0 text-center">
-                <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
+                <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-background">
                   Don’t Leave Earned Revenue on the Table
                 </span>
               </div>
@@ -235,3 +235,4 @@ function Index() {
     </div>
   );
 }
+
