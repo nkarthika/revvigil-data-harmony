@@ -215,11 +215,10 @@ function Index() {
       <footer className="py-12 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2 opacity-50">
-            <div className="size-5 bg-foreground rounded-sm"></div>
             <span className="text-sm font-semibold tracking-tight text-foreground">RevVigil</span>
           </div>
           <div className="flex gap-8">
-            <span className="text-xs text-muted-foreground">© 2024 RevVigil Infrastructure</span>
+            <span className="text-xs text-muted-foreground">© 2026 RevVigil Solutions</span>
             <a
               href="#"
               className="text-xs text-muted-foreground hover:text-brand transition-colors"
