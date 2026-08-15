@@ -28,7 +28,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-brand/10">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border" style={{ height: '100px', alignItems: 'center' }}>
+      <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border" style={{ height: '100px', alignContent: 'center' }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center">
             <img
