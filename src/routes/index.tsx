@@ -34,7 +34,7 @@ function Index() {
             <img
               src={logoAsset.url}
               alt="RevVigil"
-              className="h-8 w-auto"
+              className="h-[140px] w-auto"
             />
           </a>
           <div className="flex items-center gap-6">
