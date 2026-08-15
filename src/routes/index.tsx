@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-reconciliation.jpg";
+import logoAsset from "@/assets/revvigil-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,12 +30,13 @@ function Index() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="size-6 bg-brand rounded-sm flex items-center justify-center">
-              <div className="size-2 bg-white rounded-full animate-pulse"></div>
-            </div>
-            <span className="font-semibold tracking-tight text-foreground">RevVigil</span>
-          </div>
+          <a href="/" className="flex items-center">
+            <img
+              src={logoAsset.url}
+              alt="RevVigil"
+              className="h-8 w-auto"
+            />
+          </a>
           <div className="flex items-center gap-6">
             <a
               href="#platform"
